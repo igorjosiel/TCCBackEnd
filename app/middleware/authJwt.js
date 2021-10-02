@@ -42,3 +42,10 @@ isAdmin = (req, res, next) => {
         });
     });
 }
+
+const authJwt = {
+    verifyToken: verifyToken,
+    isAdmin: isAdmin
+}
+
+module.exports = authJwt;
