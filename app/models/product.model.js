@@ -17,7 +17,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         barcode: {
             type: Sequelize.STRING
-        },
+        }
     });
 
     return Product;
