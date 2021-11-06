@@ -3,7 +3,7 @@ const noStudentFound = () => {
 }
 
 const studentsFound = () => {
-    return 'Alunos encontrados com sucesso!';
+    return 'Produtos encontrados com sucesso!';
 }
 
 const invalidId = () => {

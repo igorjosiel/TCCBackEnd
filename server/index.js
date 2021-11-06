@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.disable( 'x-powered-by' );
 
-app.use('/students', studentsRouter);
+app.use('/products', studentsRouter);
 
 app.get('', (req, res) => {
     res.json({message: 'ok'});
