@@ -4,9 +4,9 @@ USE meu_mercado;
 CREATE TABLE PRODUCTS(
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    descricao VARCHAR(255) NOT NULL,
-    categoria VARCHAR(255) NOT NULL UNIQUE,
-    preco VARCHAR(11) NOT NULL,
-    barCode VARCHAR(11) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    price VARCHAR(11) NOT NULL,
+    barCode VARCHAR(11) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );
