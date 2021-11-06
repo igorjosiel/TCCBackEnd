@@ -1,0 +1,12 @@
+-- CREATE DATABASE academic_module;
+
+USE meu_mercado;
+CREATE TABLE PRODUCTS(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    descricao VARCHAR(255) NOT NULL,
+    categoria VARCHAR(255) NOT NULL UNIQUE,
+    preco VARCHAR(11) NOT NULL,
+    barCode VARCHAR(11) NOT NULL,
+    PRIMARY KEY (id)
+);
