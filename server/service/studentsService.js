@@ -5,32 +5,16 @@ const messages = require('./utils/messages');
 let message = '';
 let statusCode = 200;
 
-async function getStudents({ name = "", description = "", category = "", price = "", barCode = "", limit = 10, page = 1 }) {
+async function getStudents({ filter, limit = 10, page = 1 }) {
     const params = [];
     const offset = (page - 1) * limit;
 
     let pagination = {};
     let sql = 'select * from products where 1 = 1';
 
-    if (name !== '') {
+    if (filter !== '') {
         sql += ' and name LIKE ?';
-        params.push(`%${name}%`);
-    }
-    if (description !== '') {
-        sql += ' and descricao LIKE ?';
-        params.push(`%${descricao}%`);
-    }
-    if (category !== '') {
-        sql += ' and categoria LIKE ?';
-        params.push(`%${categoria}%`);
-    }
-    // if (preco !== '') {
-    //     sql += ' and preco LIKE ?';
-    //     params.push(`%${preco}%`);
-    // }
-    if (barCode !== '') {
-        sql += ' and barCode LIKE ?';
-        params.push(`%${barCode}%`);
+        params.push(`%${filter}%`);
     }
 
     sql += ` limit ${limit} offset ${offset}`;
