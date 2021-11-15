@@ -7,6 +7,7 @@ CREATE TABLE PRODUCTS(
     description VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL,
     price VARCHAR(11) NOT NULL,
-    barCode VARCHAR(11) NOT NULL UNIQUE,
+    amount VARCHAR(11) NOT NULL,
+    barCode VARCHAR(15) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );

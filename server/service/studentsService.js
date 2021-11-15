@@ -5,16 +5,20 @@ const messages = require('./utils/messages');
 let message = '';
 let statusCode = 200;
 
-async function getStudents({ filter, limit = 10, page = 1 }) {
+async function getStudents({ name = "", barCode = "", limit = 10, page = 1 }) {
     const params = [];
     const offset = (page - 1) * limit;
 
     let pagination = {};
     let sql = 'select * from products where 1 = 1';
 
-    if (filter !== '') {
+    if (name !== '') {
         sql += ' and name LIKE ?';
-        params.push(`%${filter}%`);
+        params.push(`%${name}%`);
+    }
+    if (barCode !== '') {
+        sql += ' and barCode LIKE ?';
+        params.push(`%${barCode}%`);
     }
 
     sql += ` limit ${limit} offset ${offset}`;
