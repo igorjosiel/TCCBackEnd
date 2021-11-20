@@ -1,52 +1,27 @@
-const noStudentFound = () => {
-    return 'Nenhum aluno foi encontrado!';
+const noProductFound = () => {
+    return 'Nenhum produto foi encontrado!';
 }
 
-const studentsFound = () => {
+const productsFound = () => {
     return 'Produtos encontrados com sucesso!';
 }
 
 const invalidId = () => {
-    return 'Não existe nenhum aluno com esse identificador no sistema!';
+    return 'Não existe nenhum produto com esse identificador no sistema!';
 }
 
 const withoutId = (operation) => {
-    return `Não é possível ${operation} um aluno sem um identificador!`;
+    return `Não é possível ${operation} um produto sem um identificador!`;
 }
 
-const crudStudent = (operation) => {
-    return `Aluno ${operation} com sucesso!`;
-}
-
-const mandatoryFields = () => {
-    return 'Por favor, preencha todos os campos obrigatórios!';
-}
-
-const registerAlreadyExists = () => {
-    return 'Já existe um aluno com esse número de registro no sistema!';
-}
-
-const invalidCPF = () => {
-    return 'Por favor, digite um CPF válido!';
-}
-
-const createError = () => {
-    return 'Falha ao cadastrar o aluno!';
-}
-
-const studentDoesntExist = () => {
-    return 'O aluno solicitado não existe!';
+const crudProduct = (operation) => {
+    return `Produto ${operation} com sucesso!`;
 }
 
 module.exports = {
-    noStudentFound,
-    studentsFound,
+    noProductFound,
+    productsFound,
     invalidId,
     withoutId,
-    crudStudent,
-    mandatoryFields,
-    registerAlreadyExists,
-    invalidCPF,
-    createError,
-    studentDoesntExist
+    crudProduct,
 }

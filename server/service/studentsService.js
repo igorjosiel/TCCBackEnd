@@ -34,11 +34,11 @@ async function getProducts({ name = "", barCode = "", limit = 10, page = 1 }) {
     }
 
     if (data.length === 0) {
-        message = messages.noStudentFound();
+        message = messages.noProductFound();
         statusCode = 200;
     }
     else {
-        message = messages.studentsFound();
+        message = messages.productsFound();
         statusCode = 200;
     }
 
