@@ -5,7 +5,7 @@ const messages = require('./utils/messages');
 let message = '';
 let statusCode = 200;
 
-async function getStudents({ name = "", barCode = "", limit = 10, page = 1 }) {
+async function getProducts({ name = "", barCode = "", limit = 10, page = 1 }) {
     const params = [];
     const offset = (page - 1) * limit;
 
@@ -50,7 +50,7 @@ async function getStudents({ name = "", barCode = "", limit = 10, page = 1 }) {
     }
 }
 
-async function getOneStudent(id) {
+async function getOneProduct(id) {
     let row;
 
     if (id) {
@@ -71,7 +71,7 @@ async function getOneStudent(id) {
         statusCode = 400;
     }
     else {
-        message = messages.crudStudent('encontrado');
+        message = messages.crudProduct('encontrado');
         statusCode = 200;
     }
 
@@ -82,115 +82,8 @@ async function getOneStudent(id) {
     }
 }
 
-// async function createStudent({ name, email, ra, cpf }) {
-//     let result;
-
-//     // Verify if ra already exists
-//     const row = await db.query('select * from students where ra = ?', [ra]);
-
-//     if (!name || !email || !ra || !cpf) {
-//         return {
-//             message: messages.mandatoryFields(),
-//             statusCode: 400
-//         }
-//     }
-//     else if (row.length > 0) {
-//         return {
-//             message: messages.registerAlreadyExists(),
-//             statusCode: 400
-//         }
-//     }
-//     else if (cpf.length !== 11) {
-//         return {
-//             message: messages.invalidCPF(),
-//             statusCode: 400
-//         }
-//     }
-//     else {
-//         result = await db.query(
-//             `INSERT INTO students (name, email, ra, cpf) VALUES (?, ?, ?, ?)`,
-//             [name, email, ra, cpf]
-//         );
-//     }
-
-//     if (result.affectedRows) {
-//         message = messages.crudStudent('cadastrado');
-//         statusCode = 201;
-//     }
-//     else {
-//         message = messages.createError(),
-//         statusCode = 400;
-//     }
-
-//     return  {
-//         message,
-//         statusCode
-//     };
-// }
-
-// async function updateStudent(id, {name, email}) {
-//     let result;
-
-//     if (id && name !== "" && email !== "") {
-//         result = await db.query(
-//             `UPDATE students SET name = ?, email = ? WHERE id = ?`,
-//             [name, email, id]
-//         );
-//     }
-//     else return {
-//         message: messages.mandatoryFields(),
-//         statusCode: 400
-//     }
-    
-//     if (result.affectedRows) {
-//         message = messages.crudStudent('atualizado');
-//         statusCode = 200;
-//     }
-//     else {
-//         message = messages.studentDoesntExist(),
-//         statusCode = 400;
-//     }
-
-//     return {
-//         message,
-//         statusCode
-//     };
-// }
-
-// async function removeStudent(id) {
-//     let result;
-
-//     if (id) {
-//         result = await db.query(
-//             `DELETE FROM students WHERE id = ?`,
-//             [id]
-//         );
-//     }
-//     else return {
-//         message: messages.withoutId('remover'),
-//         statusCode: 400
-//     }
-
-//     if (result.affectedRows) {
-//         message = messages.crudStudent('removido');
-//         statusCode = 200;
-//     }
-//     else {
-//         message = messages.studentDoesntExist();
-//         statusCode = 400;
-//     }
-
-//     return {
-//         message,
-//         statusCode
-//     };
-// }
-
 module.exports = {
-    getStudents,
-    // createStudent,
-    // updateStudent,
-    // removeStudent,
-    getOneStudent
+    getProducts,
+    getOneProduct
 }
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const studentsRouter = require('./route/studentsRoute');
+const productsRouter = require('./route/productsRoute');
 
 var cors = require('cors');
 
@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.disable( 'x-powered-by' );
 
-app.use('/products', studentsRouter);
+app.use('/products', productsRouter);
 
 app.get('', (req, res) => {
     res.json({message: 'ok'});
